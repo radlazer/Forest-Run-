@@ -1,0 +1,290 @@
+[gd_scene load_steps=32 format=3 uid="uid://btnlyfklpaq16"]
+
+[ext_resource type="Texture2D" uid="uid://baju5f1ag8kes" path="res://Asset/Rogue/adventurer-1.3-Sheet.png" id="1_6vewg"]
+[ext_resource type="AudioStream" uid="uid://cip85uf0bj1wv" path="res://Asset/sfx/12_Player_Movement_SFX/30_Jump_03.wav" id="2_3nuba"]
+
+[sub_resource type="GDScript" id="GDScript_1otcw"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 300.0
+const Kecepatan_Menunduk = 150.0
+const JUMP_VELOCITY = -600.0
+
+@onready var animated_sprite = $AnimatedSprite2D
+
+func _physics_process(delta: float) -> void:
+
+	if not is_on_floor():
+		$CollisionLari.disabled = false
+		velocity += get_gravity() * delta
+
+	var arah := Input.get_axis(\"ui_left\", \"ui_right\")
+	var ketika_menunduk = Input.is_action_pressed(\"ui_down\")
+
+	if ketika_menunduk and is_on_floor():
+	
+		velocity.x = arah * Kecepatan_Menunduk
+		play_animation(\"menunduk\")
+		$CollisionLari.disabled = true
+
+	
+	elif arah != 0:
+		velocity.x = arah * SPEED
+		if is_on_floor():
+			play_animation(\"run_lari\")
+		animated_sprite.flip_h = arah < 0
+
+	
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			play_animation(\"run_lari\")
+
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		play_animation(\"jump_lompat\")
+		
+	if not is_on_floor():
+		play_animation(\"jump_lompat\")
+
+
+	move_and_slide()
+
+func play_animation(animation_name: String) -> void:
+	if animated_sprite.animation != animation_name:
+		animated_sprite.play(animation_name)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq0or"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nhdb"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(50, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1vav"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(100, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5nei"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(150, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m72rd"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(0, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mkfx"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(50, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqu7h"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(100, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw1om"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(150, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0su2"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(200, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s0b0"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(250, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnuwh"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(300, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl0d"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(350, 74, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4cdt"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(0, 111, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vijlm"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(50, 111, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnldg"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(100, 111, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxhfc"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(150, 111, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox7r7"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(200, 111, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0dyv"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(0, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iclbp"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(50, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dep48"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(100, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5nlm"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(150, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wev4"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(200, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75e2u"]
+atlas = ExtResource("1_6vewg")
+region = Rect2(250, 37, 50, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01uig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq0or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nhdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1vav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5nei")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m72rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mkfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqu7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw1om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0su2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s0b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnuwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byl0d")
+}],
+"loop": false,
+"name": &"jump_lompat",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4cdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vijlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnldg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxhfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox7r7")
+}],
+"loop": false,
+"name": &"menunduk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0dyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iclbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dep48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5nlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75e2u")
+}],
+"loop": true,
+"name": &"run_lari",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trpaa"]
+size = Vector2(19.5, 21.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54e7j"]
+radius = 13.5
+
+[sub_resource type="Gradient" id="Gradient_jg5i4"]
+offsets = PackedFloat32Array(0, 0.213333, 0.368889, 0.635556, 0.764444, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.706667, 0.706667, 0.706667, 1, 0.465684, 0.465684, 0.465684, 1, 0.258438, 0.258438, 0.258438, 1, 0.144978, 0.144978, 0.144978, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3o7xm"]
+gradient = SubResource("Gradient_jg5i4")
+fill = 1
+fill_from = Vector2(0.517094, 0.512821)
+fill_to = Vector2(0.153846, 0.179487)
+
+[node name="Rogue" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(2, 2)
+script = SubResource("GDScript_1otcw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+scale = Vector2(1.44, 1.44)
+sprite_frames = SubResource("SpriteFrames_01uig")
+animation = &"run_lari"
+autoplay = "run_lari"
+
+[node name="ColisionNunduk" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 14.25)
+shape = SubResource("RectangleShape2D_trpaa")
+
+[node name="CollisionLari" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_54e7j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3nuba")
+volume_db = -20.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4, -12.5)
+scale = Vector2(1.78965, 1.78965)
+color = Color(0.386156, 0.408966, 0.421456, 1)
+energy = 3.0
+range_layer_min = -200
+texture = SubResource("GradientTexture2D_3o7xm")
+texture_scale = 2.5

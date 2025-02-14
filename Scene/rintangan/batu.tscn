@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2x7qgrhe12qu"]
+
+[ext_resource type="Texture2D" uid="uid://b6faiopeh3g2t" path="res://Asset/Rintangan/Stones/5.png" id="1_pgrpl"]
+
+[node name="Batu" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_pgrpl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2.5, 2.5)
+polygon = PackedVector2Array(11.5, -15.5, -7.5, -15.5, -15.5, 1.8, -15.5, 15.5, 15.5, 15.5, 15.5, -12.3)

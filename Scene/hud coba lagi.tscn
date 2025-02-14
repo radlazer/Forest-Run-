@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://1qlthkncj2k5"]
+
+[ext_resource type="FontFile" uid="uid://dhni8v53dy0it" path="res://Asset/font/EXEPixelPerfect.ttf" id="1_5oeuw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tesvv"]
+bg_color = Color(0.145098, 0.462745, 0.376471, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.905
+offset_top = -34.175
+offset_right = 134.905
+offset_bottom = 34.175
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_5oeuw")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_tesvv")
+text = "MULAI LAGI"

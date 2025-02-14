@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqsrctdvxhwar"]
+
+[ext_resource type="Texture2D" uid="uid://bn7l2lm8bgxgk" path="res://Asset/musuh/Bat/Bat with VFX/Bat-IdleFly.png" id="1_jf5p2"]
+[ext_resource type="Script" path="res://Scene/rintangan/kelelawar.gd" id="1_mqjgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da4vo"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k4rg"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iok01"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46jek"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtrvs"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emrpo"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo3pb"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vypd"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_layi2"]
+atlas = ExtResource("1_jf5p2")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbqy5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da4vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iok01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46jek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtrvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emrpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo3pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vypd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_layi2")
+}],
+"loop": true,
+"name": &"kelalawar_terbang",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us4ir"]
+radius = 13.0384
+
+[sub_resource type="Gradient" id="Gradient_rv5j7"]
+offsets = PackedFloat32Array(0, 0.00444444, 0.533333, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.0311111, 0.0311111, 0.0311111, 1, 0.0311111, 0.0311111, 0.0311111, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqn7i"]
+gradient = SubResource("Gradient_rv5j7")
+fill = 1
+fill_from = Vector2(0.487179, 0.538462)
+fill_to = Vector2(0.598291, 0.239316)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(0, 340)
+script = ExtResource("1_mqjgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_cbqy5")
+animation = &"kelalawar_terbang"
+autoplay = "kelalawar_terbang"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_us4ir")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, -8)
+scale = Vector2(0.546875, 0.546875)
+color = Color(0.75679, 0, 0.224865, 1)
+energy = 3.77
+texture = SubResource("GradientTexture2D_vqn7i")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-10, -8)
+scale = Vector2(0.546875, 0.546875)
+color = Color(0.75679, 0, 0.224865, 1)
+energy = 3.77
+texture = SubResource("GradientTexture2D_vqn7i")

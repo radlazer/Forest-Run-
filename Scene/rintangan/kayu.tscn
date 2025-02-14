@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdh7d2h4dd1t1"]
+
+[ext_resource type="Texture2D" uid="uid://iviyckx0ehnq" path="res://Asset/Rintangan/Ridges/2.png" id="1_hf0sg"]
+
+[node name="Kayu" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_hf0sg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2.5, 2.5)
+polygon = PackedVector2Array(11.5, -13.25, 5.25, -10.75, -2.25, -1.5, -10.25, -6.25, -20, 13.5, 19.75, 13.5, 12.25, -4)

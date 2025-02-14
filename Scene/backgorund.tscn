@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://dp3rq4n54m553"]
+
+[ext_resource type="Texture2D" uid="uid://c3vch15iii2tk" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="1_j3bi8"]
+[ext_resource type="Texture2D" uid="uid://csnjh261x38of" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="2_cdej1"]
+[ext_resource type="Texture2D" uid="uid://c4fq5b3f3a72b" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0007_Lights.png" id="3_ko3kl"]
+[ext_resource type="Texture2D" uid="uid://dkibvp3pmj7y0" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="4_y5rqn"]
+[ext_resource type="Texture2D" uid="uid://d2o45gvqsslb0" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0005_5.png" id="5_u6h83"]
+[ext_resource type="Texture2D" uid="uid://0ibcjkhou2cf" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="6_chqoc"]
+[ext_resource type="Texture2D" uid="uid://xa0ltu8boi2j" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="7_c1tut"]
+[ext_resource type="Texture2D" uid="uid://djlpwul2f1kpt" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="8_ewqxw"]
+[ext_resource type="Texture2D" uid="uid://ducedt8iqbbbw" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="9_j7m4h"]
+[ext_resource type="Texture2D" uid="uid://cm6ebdook6ykh" path="res://Asset/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="10_0uya0"]
+
+[node name="Backgorund" type="ParallaxBackground"]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.98
+blend_mode = 1
+range_layer_min = -200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -145)
+texture = ExtResource("1_j3bi8")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(926, -145)
+texture = ExtResource("1_j3bi8")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_cdej1")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("3_ko3kl")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("4_y5rqn")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("5_u6h83")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("6_chqoc")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+texture = ExtResource("7_c1tut")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
+texture = ExtResource("8_ewqxw")
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer8"]
+texture = ExtResource("9_j7m4h")
+centered = false
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer9"]
+texture = ExtResource("10_0uya0")
+centered = false
